@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/bootstrap";
+@mixin mobile {
+    @media (max-width: 500px) {
+        @content;
+    }
+}
+
+.app {
+    height: 100vh;
+    background: linear-gradient(90deg,#ff7b5c,#ff6c81);
+    display: flex;
+
+    @include mobile {
+        background: linear-gradient(#ff7b5c,#ff6c81);
+    }
+}
