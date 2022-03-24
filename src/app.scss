@@ -40,6 +40,7 @@
 
         .imgContainer {
             height: 35vh;
+            animation: jumpflip 1s infinite;
 
             @include mobile {
                 height: 20vh;
