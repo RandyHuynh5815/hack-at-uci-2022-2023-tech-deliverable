@@ -1,16 +1,54 @@
 @import "~bootstrap/scss/bootstrap";
-@mixin mobile {
-    @media (max-width: 500px) {
-        @content;
-    }
-}
+@import "./global.scss";
+
 
 .app {
     height: 100vh;
     background: linear-gradient(90deg,#ff7b5c,#ff6c81);
     display: flex;
+    background-attachment: fixed;
 
     @include mobile {
         background: linear-gradient(#ff7b5c,#ff6c81);
+        flex-direction: column;
     }
+
+    .left {
+        flex: 0.5;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile {
+            width: 50vw;
+            flex: 0.5;
+        }
+    }
+
+    .right {
+        flex: 0.5;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile {
+            width: 50vw;
+            flex: 0.5;
+        }
+
+        .imgContainer {
+            height: 35vh;
+
+            @include mobile {
+                height: 20vh;
+            }
+
+            img {
+                height: 100%;
+            }
+        }
+    }
+    
 }

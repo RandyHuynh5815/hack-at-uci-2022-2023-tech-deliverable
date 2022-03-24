@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./../../global.scss";
+
+.application {
+    background-color: white;
+    border-radius: 15px;
+    width: 50vh;
+    
+    @include mobile {
+        width: 50vh;
+    }
+
+    #form {
+        margin: 30px;
+
+        @include mobile {
+            margin: 15px;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .formLabel {
+            font-weight: bold;
+        }
+
+        .formControl {
+            border-radius: 10px;
+            border-color: black;
+            resize: none;
+        }
+
+        .button {
+            background: linear-gradient(90deg,#ff7b5c,#ff6c81);;
+            border-radius: 20px;
+            border: none;
+            margin: 15px;
+            padding: 5px 20px;
+            float: right;
+        }
+    }
+}
