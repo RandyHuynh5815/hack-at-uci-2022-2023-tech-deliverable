@@ -42,6 +42,8 @@ export default function Application() {
             setEmailError("Please enter an email address");
           } else if (!validateEmail(email)) {
             setEmailError("This is not a valid email address. A valid address ends with @<url>")
+          } else {
+            setEmailError("")
           }
           setValidated(true)
           console.log("That response aint it")
