@@ -3,14 +3,20 @@
 
 
 .app {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(90deg,#ff7b5c,#ff6c81);
     display: flex;
     background-attachment: fixed;
 
     @include mobile {
         background: linear-gradient(#ff7b5c,#ff6c81);
+        height: 1500px;
         flex-direction: column;
+        overflow: auto;
+    }
+
+    @include mobile-landscape {
+        height: 750px;
     }
 
     .left {
@@ -21,8 +27,13 @@
         align-items: center;
 
         @include mobile {
-            width: 50vw;
-            flex: 0.5;
+            width: 100vw;
+            min-height: 750px;
+            flex-shrink: 0;
+        }
+
+        @include mobile-landscape {
+            height: inherit;
         }
     }
 
@@ -34,16 +45,25 @@
         align-items: center;
 
         @include mobile {
-            width: 50vw;
+            width: 100vw;
+            min-height: 750px;
             flex: 0.5;
         }
 
+        @include mobile-landscape {
+            height: inherit;
+        }
+
         .imgContainer {
-            height: 35vh;
+            height: 35%;
             animation: jumpflip 1s infinite;
 
             @include mobile {
-                height: 20vh;
+                height: 20%;
+            }
+
+            @include mobile-landscape {
+                height: 35vh;
             }
 
             img {

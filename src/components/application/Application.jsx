@@ -15,7 +15,7 @@ export default function Application() {
     return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   };
 
-  async function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const query = {
       name: name,
@@ -26,7 +26,7 @@ export default function Application() {
     const usp = new URLSearchParams(query)
     const url = "https://hack-tech-app-endpoint.herokuapp.com/test?" + usp
 
-    const response = await fetch(url, {
+    fetch(url, {
       method: "GET"
     })
       .then(response => {

@@ -5,19 +5,24 @@
     background-color: white;
     border-radius: 15px;
     width: 50vh;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     @include mobile {
-        width: 50vh;
+        width: 300px;
     }
 
     #form {
-        margin: 30px;
+        height: 90%;
+        width: 80%;
 
         @include mobile {
             margin: 15px;
         }
 
         h1 {
+            margin: 10px;
             font-size: 20px;
             text-align: center;
             font-weight: bold;
