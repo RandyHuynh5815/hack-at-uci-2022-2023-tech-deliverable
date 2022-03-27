@@ -1,8 +1,9 @@
+import "./application.scss";
+import 'react-toastify/dist/ReactToastify.css';
+
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import "./application.scss";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Application() {
   const [validated, setValidated] = useState(false)
@@ -12,8 +13,17 @@ export default function Application() {
   const [emailError, setEmailError] = useState("")
 
   const validateEmail = (email) => {
-    return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+    return email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/);
   };
+
+  const handleEmail = (e) => {
+    if (e.target.value === "") {
+      setEmailError("Please enter an email address");
+    } else if (!validateEmail(e.target.value)) {
+      setEmailError("This is not a valid email address. A valid address ends with @<url>")
+    }
+    setEmail(e.target.value)
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,22 +41,19 @@ export default function Application() {
     })
       .then(response => {
         if (response.ok) {
-          console.log("Response valid lessgo")
           setName("")
           setEmail("")
           setFunFact("")
           toast.success("Form successfully submitted")
           setValidated(false)
+          console.log(response)
         } else {
           if (email === "") {
             setEmailError("Please enter an email address");
           } else if (!validateEmail(email)) {
             setEmailError("This is not a valid email address. A valid address ends with @<url>")
-          } else {
-            setEmailError("")
           }
           setValidated(true)
-          console.log("That response aint it")
         }
       })
   };
@@ -65,7 +72,7 @@ export default function Application() {
         <Form.Group hasValidation className="mb-3" controlId="formBasicEmail">
           <Form.Label className='formLabel'>Email</Form.Label>
           <Form.Control className="formControl" type="email" placeholder="Email" 
-            value={email} onChange={(e) => setEmail(e.target.value)} pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/>
+            value={email} onChange={handleEmail} pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$" required/>
           <Form.Control.Feedback type="invalid">{emailError}</Form.Control.Feedback>
         </Form.Group>
 

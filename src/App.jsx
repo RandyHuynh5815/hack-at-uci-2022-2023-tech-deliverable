@@ -1,4 +1,5 @@
 import Application from "./components/application/Application.jsx"
+import Petr from "./components/petr/Petr.jsx";
 import "./app.scss";
 
 function App() {
@@ -8,9 +9,7 @@ function App() {
         <Application />
       </div>
       <div className="right">
-        <div className="imgContainer">
-          <img src="petr.png"/>
-        </div>
+        <Petr />
       </div>
     </div>
   );

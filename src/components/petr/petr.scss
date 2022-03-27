@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./../../global.scss";
+
+.petr {
+    height: 35%;
+    animation: jumpflip 1s infinite;
+
+    @include mobile {
+        height: 20%;
+    }
+
+    @include mobile-landscape {
+        height: 35vh;
+    }
+
+    img {
+        height: 100%;
+    }
+}
